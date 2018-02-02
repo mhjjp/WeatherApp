@@ -1,6 +1,7 @@
-package cn.nmc.utils;
+package com.example.mahui.circleview;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.pm.PackageInfo;
@@ -44,10 +45,11 @@ public class ConfigUtils {
     public static int getDeviceWidth(Activity context) {
         try {
             if (ConfigUtils.devicesWidth == 0) {
-                DisplayMetrics metrics = new DisplayMetrics();
-                WindowManager wm = context.getWindowManager();
-                wm.getDefaultDisplay().getMetrics(metrics);
-                ConfigUtils.devicesWidth = metrics.widthPixels;
+                WindowManager wm = (WindowManager) context
+                        .getSystemService(Context.WINDOW_SERVICE);
+                int width = wm.getDefaultDisplay().getWidth();
+
+                ConfigUtils.devicesWidth = width;
             }
             return ConfigUtils.devicesWidth;
         } catch (Exception ex) {
@@ -59,8 +61,7 @@ public class ConfigUtils {
     public static boolean haveInternet(ContextWrapper context) {
 
         ConnectivityManager mConnectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo mNetworkInfo = mConnectivityManager
-                .getActiveNetworkInfo();
+        NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
         if (mNetworkInfo != null) {
             Log.i("网络判断", "haveInternet: "+mNetworkInfo.isAvailable()+"==="+mNetworkInfo.isConnected());
             return mNetworkInfo.isAvailable() && mNetworkInfo.isConnected();
