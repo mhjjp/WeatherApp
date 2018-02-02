@@ -52,8 +52,8 @@ public class CircleView extends View {
         paint.setColor(Color.RED);
         paint.setStrokeWidth(2.0f);
 
-        screenW = ConfigUtils.devicesWidth;
-        screenH = ConfigUtils.devicesHeight;
+        screenW = MainActivity.containerW;
+        screenH = MainActivity.containerH;
     }
 
 
@@ -106,4 +106,6 @@ public class CircleView extends View {
         Log.i(TAG, "anayliseX: x: ="+y);
         return y;
     }
+
+
 }
