@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         //测试画圆的View
         linear_layout = (LinearLayout)findViewById(R.id.linear_layout);
 
+        // **************** ****************8 *****************//
+        // 在onCreate方法中获取LinearLayout的宽和高度
+        //
+
         timer = new Timer();
         TimerTask task = new TimerTask(){
             public void run() {
