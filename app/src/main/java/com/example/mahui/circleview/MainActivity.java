@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         linear_layout = (LinearLayout)findViewById(R.id.linear_layout);
 
         // **************** ****************8 *****************//
-        // 在onCreate方法中获取LinearLayout的宽和高度
+        // 在onCreate方法中获取LinearLayout的宽和高度  这里需要好好学习下View的绘制流程
         //
 
         timer = new Timer();
